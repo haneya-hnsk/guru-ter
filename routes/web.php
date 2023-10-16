@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoteController;
 
@@ -15,9 +16,12 @@ use App\Http\Controllers\VoteController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
+    return view('layouts.app');
+})->name('index');
 
+
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::group(['middleware' => ["auth", "checkstatus", ]], function () {
    Route::get('/voting', [VoteController::class, 'index']);

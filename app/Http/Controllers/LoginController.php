@@ -9,6 +9,10 @@ use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
 {
+
+    public function index(){
+        return view('login');
+    }
     public function authenticate(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
@@ -19,11 +23,11 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect()->intended('dashboard');
+            return redirect()->intended('index');
         }
  
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'gada deh',
         ])->onlyInput('email');
     }
 }
