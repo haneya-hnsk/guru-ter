@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use \Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Candidate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use \Illuminate\Support\Facades\Auth;
 
 class VoteController extends Controller
 {
     public function index(){
-        return view('vote');
+        $candidates = Candidate::class::all();
+        return view('vote.index', ['candidates' => $candidates]);
     }
     public function store(Request $request){
         $userId = Auth::id();

@@ -19,6 +19,7 @@ class CandidateFactory extends Factory
     {
         return [
             'lead' => fake()->name(),
+            'motto' => fake()->paragraph(),
             
             'co_lead' => fake()->name(),
 

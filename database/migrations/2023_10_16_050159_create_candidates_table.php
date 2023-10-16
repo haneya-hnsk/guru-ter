@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('lead');
             $table->string('co_lead');
+            $table->string('motto');
             $table->timestamps();
         });
     }
