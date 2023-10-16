@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VoteController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+})->middleware('auth');
+
+
+Route::group(['middleware' => ["auth", "checkstatus", ]], function () {
+   Route::get('/voting', [VoteController::class, 'index']);
+   Route::post('/voting', [VoteController::class, 'store']);
+})->name("new-payment");
+
+
+Route::get('/success', [VoteController::class, 'success'])->middleware('auth');
