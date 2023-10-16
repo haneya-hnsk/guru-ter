@@ -5,11 +5,12 @@
         <span class="navbar-toggler-icon"></span>
        
       </button>
+      
+      @auth
       @if (auth()->user()->admin)
       <a href="/admin" class="btn btn-primary">Punya Admin hehe</a>
       @endif
 
-        @auth
         <ul class="navbar-nav ms-auto" padd >
           <li class="nav-item dropdown">
             <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
