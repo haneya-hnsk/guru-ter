@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::group(['middleware' => ["auth", "checkstatus", ]], function () {
    Route::get('/voting', [VoteController::class, 'index']);
    Route::post('/voting', [VoteController::class, 'store']);
-})->name("new-payment");
+})->name("main-vote");
 
 
 Route::get('/success', [VoteController::class, 'success'])->middleware('auth');
