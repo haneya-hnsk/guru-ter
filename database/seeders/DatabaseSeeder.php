@@ -20,6 +20,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
+        \App\Models\User::factory()->create([
+            'name' => 'Test Commit',
+            'commit' => true,
+            'email' => 'commit@example.com',
+        ]);
+
         
             $this->call([
                 CandidateSeeder::class,

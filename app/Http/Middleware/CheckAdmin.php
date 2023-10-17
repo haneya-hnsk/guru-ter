@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckLevel
+class CheckAdmin
 {
     /**
      * Handle an incoming request.
@@ -18,6 +18,8 @@ class CheckLevel
         if(auth()->user()->admin==true){
             return $next($request);
         }
+        
+    
         abort(403);
     }
 }

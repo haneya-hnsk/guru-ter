@@ -25,6 +25,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function scopeFilter($query, array $filters){
+        $query->when($filters['cari'] ?? false, fn($query, $cari) =>
+        $query->where('name', 'like', '%' . $cari . '%'));
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

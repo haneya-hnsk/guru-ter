@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('class');
             $table->string('email')->unique();
             $table->foreignId('candidate_id')->default(0)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('admin')->default(false);
+            $table->boolean('commit')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

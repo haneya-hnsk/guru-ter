@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CommitController;
 use App\Http\Controllers\LogoutController;
 
 /*
@@ -38,6 +39,9 @@ Route::group(['middleware' => ["auth", "checkstatus" ]], function () {
 Route::get('/success', [VoteController::class, 'success'])->middleware('auth');
 
 
-Route::get('/admin', [AdminController::class, 'index'])->middleware('checklevel');
+Route::get('/admin', [AdminController::class, 'index'])->middleware('checkadmin');
+
+Route::get('/commit', [CommitController::class, 'index'])->middleware('checkcommit');
+
 
 
