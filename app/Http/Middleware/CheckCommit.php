@@ -16,7 +16,7 @@ class CheckCommit
     public function handle(Request $request, Closure $next): Response
     {
                 
-        if(auth()->user()->commit==true){
+        if(auth()->user()->commit){
             return $next($request);
         }
         abort(403);

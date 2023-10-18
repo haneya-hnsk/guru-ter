@@ -1,19 +1,17 @@
 <nav class="navbar navbar-expand-lg  ps-4  text-white" style="background-color: #42a53b; padding-right:60px;" >
     <div class="container-fluid text-white">
       <a class="navbar-brand text-white" href="/"><h3>APCB</h3></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
        
       </button>
       
       @auth
       @if (auth()->user()->admin)
-      <a href="/admin" class="btn btn-primary">Punya Admin hehe</a>
+      <a href="/admin" class="btn btn-primary"> Admin </a>
       @endif
 
 
       @if (auth()->user()->commit)
-      <a href="/commit" class="btn btn-primary">Punya Panitia hehe</a>
+      <a href="/commit" class="btn btn-primary"> Panitia </a>
       @endif
 
       <ul class="navbar-nav ms-auto" padd >

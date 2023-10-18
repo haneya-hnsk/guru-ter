@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Events\UserVoted;
 use App\Models\Candidate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,6 +22,8 @@ class VoteController extends Controller
         $user->candidate_id = $request->input('candidate_id');
 
         $user->save();
+        event(new UserVoted($user)); // broadcast `UserVoted` event
+
 
         return redirect('/success');
     }

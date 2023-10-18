@@ -3,12 +3,18 @@
 @section('content')
 
 
-<div class="row row-cols-1  g-4 mt-4 me-4 text-center">
+<div class="container" style="min-height: 90vh; margin-top:10vh;">
 
-   <h1>cuss wuss kita langsung pilih</h1>
-   <a href="/voting" class="btn btn-success"><h1>KLIK AKU!</h1> </a>
+   <div class="container mt-auto">
+     <div class="row d-flex justify-content-center mt-auto">
+       <div class="col-12">
+
+   <h2>cuss wuss kita langsung pilih</h1>
 </div>
-
+<a href="/voting" class="btn btn-success"><h1>KLIK AKU!</h1> </a>
+     </div>
+   </div>
+   </div>
 
 
 @endsection

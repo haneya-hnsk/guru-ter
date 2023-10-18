@@ -26,8 +26,11 @@ class User extends Authenticatable
     ];
 
     public function scopeFilter($query, array $filters){
-        $query->when($filters['cari'] ?? false, fn($query, $cari) =>
-        $query->where('name', 'like', '%' . $cari . '%'));
+        $query->when($filters['name'] ?? false, fn($query, $name) =>
+        $query->where('name', 'like', '%' . $name . '%'));
+
+        $query->when($filters['class'] ?? false, fn($query, $class) =>
+        $query->where('class', 'like', '%' . $class . '%'));
     }
 
     /**

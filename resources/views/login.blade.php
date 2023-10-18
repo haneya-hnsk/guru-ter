@@ -13,14 +13,14 @@
 
     <div class="container mt-auto">
       <div class="row d-flex justify-content-center mt-auto">
-        <div class="col-6">
+        <div class="col-9">
           <div class="card">
             <div class="card-body">
               <form method="post" action="/login">
                 @csrf
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email"  name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input type="text"  name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">

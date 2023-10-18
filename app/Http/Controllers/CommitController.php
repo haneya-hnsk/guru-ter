@@ -8,12 +8,11 @@ use Illuminate\Http\Request;
 class CommitController extends Controller
 {
     public function index(){
-        $dahlah = User::class;
 
         return view('commit.index', [
             // 'kelas' => 
-            'users' => User::latest()->filter(Request(['cari']))->get(),
-            'dahlah' => $dahlah,
+            'classes' => User::all('class')->keyBy('class')->groupBy('class', true),
+            'users' => User::latest()->filter(Request(['name', 'class']))->paginate(40),
             // ->filter(request(['kelas', 'cari'])),
         ]);   
     }

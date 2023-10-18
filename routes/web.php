@@ -24,8 +24,8 @@ Route::get('/', function () {
 
 Route::post('/logout', [LogoutController::class, 'logout'])->middleware('auth')->name('logout');
 
-Route::group(['middleware' => ["guest", ]], function () { 
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::group(['middleware' => ["guest"]], function () { 
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 })->name("login-group");
 

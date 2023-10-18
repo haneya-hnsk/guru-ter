@@ -14,20 +14,20 @@ class CandidateSeeder extends Seeder
     public function run(): void
     {
         // Candidate::factory()->create();
-        \App\Models\Candidate::factory()->create([
-            'lead' => 'Nur Alisa',
-            'co_lead' => 'Andrian Maulana',
-        ]);
+        // \App\Models\Candidate::factory()->create([
+        //     'lead' => 'Nur Alisa',
+        //     'co_lead' => 'Andrian Maulana',
+        // ]);
 
-        \App\Models\Candidate::factory()->create([
-            'lead' => 'Nur Alisa',
-            'co_lead' => 'Andrian Maulana',
-        ]);
+        // \App\Models\Candidate::factory()->create([
+        //     'lead' => 'Nur Alisa',
+        //     'co_lead' => 'Andrian Maulana',
+        // ]);
         
-        \App\Models\Candidate::factory()->create([
-            'lead' => 'Nur Alisa',
-            'co_lead' => 'Andrian Maulana',
-        ]);
+        // \App\Models\Candidate::factory()->create([
+        //     'lead' => 'Nur Alisa',
+        //     'co_lead' => 'Andrian Maulana',
+        // ]);
 
     }
 }
