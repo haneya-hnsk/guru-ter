@@ -11,9 +11,11 @@ class CommitController extends Controller
 
         return view('commit.index', [
             // 'kelas' => 
-            'classes' => User::all('class')->keyBy('class')->groupBy('class', true),
-            'users' => User::latest()->filter(Request(['name', 'class']))->paginate(40),
+
+            'classes' => User::select('class')->groupBy('class')->orderBy('class', 'asc')->get(),
+
+            'users' => User::orderBy('name')->filter(Request(['name', 'class']))->paginate(40),
             // ->filter(request(['kelas', 'cari'])),
-        ]);   
+        ]);  
     }
 }

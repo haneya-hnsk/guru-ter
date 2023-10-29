@@ -4,12 +4,14 @@
 
 
 <div class="row row-cols-1 row-cols-md-3 g-4 mt-4 me-4">
-
+<?php
+$j =1;
+?>
     @foreach ($candidates as $candidate)
         
   <div class="col">
     <div class="card">
-      <img src="https://picsum.photos/300/400" class="card-img-top" alt="..." style="height:300px; ">
+      <img src="paslon{{ $j++    }}.jpg" class="card-img-top" alt="..." style="height:300px; ">
       <div class="card-body">
         <h2 class="card-title">{{ $candidate->lead }}</h5>
         <h5 class="card-text">{{ $candidate->co_lead }}</h5>

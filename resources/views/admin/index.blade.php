@@ -6,6 +6,8 @@
 <h3>orang yang pilih pasangan 1  = {{ $dahlah::where('candidate_id', 1)->count() }}</h3><br>
 <h3>orang yang pilih pasangan 2  = {{ $dahlah::where('candidate_id', 2)->count() }}</h3><br>
 <h3>orang yang pilih pasangan 3  = {{ $dahlah::where('candidate_id', 3)->count() }}</h3>
+<br>
+<h3>Presentasi  = {{ $dahlah::where('candidate_id', true)->count() / $dahlah::all()->count() * 100 }} %</h3>
 
 <div class="row row-cols-1 row-cols-md-3 g-4 mt-4 me-4">
   <form action="/admin" method="get">
@@ -24,8 +26,8 @@
       <div class="mb-3 ">
           <select onchange="this.form.submit()" class="form-select" aria-label="Default select example"  name="class">
               <option value="" {{ request('class')==null ? 'selected' : '' }}>SEMUA PESERTA</option>
-             @foreach ($classes as $key => $value)
-              <option value="{{ $key }}" {{ $key == request('class') ? 'selected' : ''}} >{{ $key }}</option>
+             @foreach ($classes as $class)
+              <option value="{{ $class['class'] }}" {{ $class['class'] == request('class') ? 'selected' : ''}} >{{ $class['class'] }}</option>
                  
              @endforeach
             </select>

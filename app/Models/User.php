@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
        return $this->belongsTo(Candidate::class);
     }
+
+    public function getClass()
+    {
+
+    }
 }

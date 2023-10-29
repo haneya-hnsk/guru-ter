@@ -14,23 +14,24 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(30)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'class' => 'guru',
-
-        //     'admin' => true,
-        //     'email' => 'afler@example.com',
-        // ]);
-
         \App\Models\User::factory()->create([
-            
-            
-            'id' => 11111,
-            'name' => 'Test Commit',
-            'commit' => true,
+            'name' => 'Test User',
             'class' => 'guru',
-            'email' => 'fler@example.com',
+            'id' => 111311,
+
+            'admin' => true,
+            'email' => 'afler@example.com',
         ]);
+
+        // \App\Models\User::factory()->create([
+            
+            
+        //     'id' => 11111,
+        //     'name' => 'Test Commit',
+        //     'commit' => true,
+        //     'class' => 'guru',
+        //     'email' => 'fler@example.com',
+        // ]);
 
         
             $this->call([
