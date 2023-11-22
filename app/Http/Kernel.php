@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'checkadmin' =>  \App\Http\Middleware\CheckAdmin::class,
         'checkcommit' =>  \App\Http\Middleware\CheckCommit::class,
         'plainuser' =>  \App\Http\Middleware\PlainUser::class,
+        'kepsek' =>  \App\Http\Middleware\CheckKepsek::class,
         'plainuser2' =>  \App\Http\Middleware\PlainUser2::class,
     ];
 }

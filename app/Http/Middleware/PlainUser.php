@@ -15,10 +15,15 @@ class PlainUser
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!auth()->user()->commit  ){
-            return $next($request);
+        if(auth()->user()->commit  ){
+            return redirect('/commit');
         }
-        return redirect('/commit');
-        
+        if(auth()->user()->admin  ){
+            return redirect('/admin');
+        }
+        if(auth()->user()->kepsek  ){
+            return redirect('/kepsek');
+        }
+        return $next($request);
     }
 }

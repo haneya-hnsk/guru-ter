@@ -5,6 +5,7 @@ use App\Http\Controllers\VoteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CommitController;
+use App\Http\Controllers\KepsekController;
 use App\Http\Controllers\LogoutController;
 
 /*
@@ -27,19 +28,20 @@ Route::group(['middleware' => ["guest"]], function () {
 })->name("login-group");
 
 
-Route::group(['middleware' => ["auth", "checkstatus", "plainuser", "plainuser2" ]], function () {
+Route::group(['middleware' => ["auth", "checkstatus", "plainuser" ]], function () {
     Route::get('/voting', [VoteController::class, 'index']);
-    Route::post('/voting', [VoteController::class, 'store']);
+    Route::post('/voting/{id}', [VoteController::class, 'update']);
     Route::get('/', function () {
         return view('welcome');
     })->name('index');
 })->name("main-vote");
-
 Route::get('/success', [VoteController::class, 'success']);
 
 
 
+
 Route::get('/admin', [AdminController::class, 'index'])->middleware('checkadmin');
+Route::get('/kepsek', [KepsekController::class, 'index']);
 
 Route::get('/commit', [CommitController::class, 'index'])->middleware('checkcommit');
 

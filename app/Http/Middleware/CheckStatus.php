@@ -15,7 +15,7 @@ class CheckStatus
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->candidate){
+        if(auth()->user()->voted){
             return redirect('/success');
         }
         return $next($request);

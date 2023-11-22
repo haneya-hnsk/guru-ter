@@ -18,11 +18,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'candidate_id',
-        'email',
-        'password',
+    protected $guarded = [
+       'id'
     ];
 
     public function scopeFilter($query, array $filters){
