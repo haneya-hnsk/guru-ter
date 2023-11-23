@@ -42,7 +42,7 @@ Route::post('/ubahpasswordsiswa/{id}', [CommitController::class, 'ubahpasswordsi
 
 Route::get('/admin', [AdminController::class, 'index'])->middleware('checkadmin');
 
-Route::get('/kepsek', [KepsekController::class, 'index']);
+Route::get('/kepsek', [KepsekController::class, 'index'])->middleware(['auth','kepsek']);
 
 Route::get('/commit', [CommitController::class, 'index'])->middleware('checkcommit');
 

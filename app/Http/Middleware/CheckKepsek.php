@@ -15,7 +15,7 @@ class CheckKepsek
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->commit){
+        if(auth()->user()->kepsek){
             return $next($request);
         }
         abort(403);
