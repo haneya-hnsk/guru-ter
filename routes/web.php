@@ -35,12 +35,13 @@ Route::group(['middleware' => ["auth", "checkstatus", "plainuser" ]], function (
         return view('welcome');
     })->name('index');
 })->name("main-vote");
-Route::get('/success', [VoteController::class, 'success']);
+Route::get('/success', [VoteController::class, 'success'])->middleware(['plainuser', 'auth']);
 
-
+Route::post('/ubahpasswordsiswa/{id}', [CommitController::class, 'ubahpasswordsiswa'])->middleware('checkcommit');
 
 
 Route::get('/admin', [AdminController::class, 'index'])->middleware('checkadmin');
+
 Route::get('/kepsek', [KepsekController::class, 'index']);
 
 Route::get('/commit', [CommitController::class, 'index'])->middleware('checkcommit');

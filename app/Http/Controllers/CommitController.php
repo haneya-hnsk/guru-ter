@@ -18,4 +18,14 @@ class CommitController extends Controller
             // ->filter(request(['kelas', 'cari'])),
         ]);  
     }
+
+    public function ubahpasswordsiswa($id){
+        $siswa = User::where('id', $id)->get()->first();
+
+        $siswa->update([
+            'password' => '$2a$12$GAXHC0nJYmDcRfEn8KnNwOBu9HKiojB7mks7jgrd26ibGa29fSUCi'
+        ]);
+
+        return redirect('/');
+    }
 }

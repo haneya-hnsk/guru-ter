@@ -3,6 +3,10 @@
 @section('content')
 
 <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+    <form action="logout" method="post">
+        @csrf
+        <button class="btn btn-danger" type="submit">Logout</button>
+    </form>
     <form action="/commit" method="get">
         @if (request('class'))
             <input type="hidden" name="class" value="{{ request('class') }}">
@@ -20,7 +24,7 @@
             <select onchange="this.form.submit()" class="form-select" aria-label="Default select example"  name="class">
                 <option value="" {{ request('class')==null ? 'selected' : '' }}>SEMUA PESERTA</option>
                @foreach ($classes as $class)
-               <option value="{{ $class['class'] }}" {{ $class['class'] == request('class') ? 'selected' : ''}} >{{ $class['class'] }}</option>
+               <option value="{{ $class['class'] }}" {{ $class['class'] == request('class') ? 'selected' : ''}} >{{  $class['class'] }}</option>
                    
                @endforeach
               </select>
@@ -38,6 +42,7 @@
             <th scope="col">Peserta Voting</th>
             <th scope="col">Kelas</th>
             <th scope="col">Piihan</th>
+            <th scope="col">Ubah Password Akun</th>
         </tr>
     </thead>
     <tbody>
@@ -51,11 +56,25 @@
         <td>{{ $user->name }}</td>
         <td>{{ $user->class }}</td>
         <td>{{ $user->candidate ? "Sudah Memilih" : "Belum Memilih" }}</td>
+        <td>
+        <form action="/ubahpasswordsiswa/{{ $user->id }}" method="post">
+        @csrf
+        <button type="submit" class="btn btn-danger" onclick="return confirm('yakin mau ubah password siswa ini ?')">
+            Reset Password
+        </button>
+        </form>    
+        </td>
       </tr>
       @endforeach
       
     </tbody>
 </table>
+
+<script>
+    function cek(){
+        return confirm("s")
+    }
+</script>
 {{-- 
     <div class="container">
         <div class="row">

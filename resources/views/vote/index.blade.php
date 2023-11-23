@@ -2,15 +2,24 @@
 
 @section('content')
     <div class="row mt-3 d-flex justify-content-center">
-        <div class="col-8 ">
-            <div class="card">
-                <div class="card-body">
+        <div class="col-lg-6 col-11">
+            <div class="">
+                <div class="">
+                    <div class="text-center">
+                        <h5>
+                            Pilih Guru Berprestasi
+                        </h5>
+                        <p>
+                            Pilih Guru yang anda inginkan sesuai kriteria
+                        </p>
+                        <br>
+                    </div>
                     <form action="/voting/{{ auth()->user()->id }}" method="post">
                         @csrf
                     
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="disiplin" class="form-label">Guru Ter <b>Disiplin</b></label>
-                            <select name="disiplin" id="disiplin" class="form-control" >
+                            <select name="disiplin" id="disiplin" class="form-control" required>
                                  <option value="" selected disabled hidden>Pilih disini</option>
                                 @foreach ($candidates as $candidate)
                                     <option value="{{ $candidate->name }}"
@@ -26,9 +35,9 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="kreatif_inovatif" class="form-label">Guru Ter <b>Kreatif dan Inovatif</b></label>
-                            <select name="kreatif_inovatif" id="kreatif_inovatif" class="form-control" >
+                            <select name="kreatif_inovatif" id="kreatif_inovatif" class="form-control" required>
                                  <option value="" selected disabled hidden>Pilih disini</option>
                                 @foreach ($candidates as $candidate)
                                     <option value="{{ $candidate->name }}"
@@ -44,9 +53,9 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="sabar_ramah" class="form-label">Guru Ter <b>Sabar dan Ramah</b></label>
-                            <select name="sabar_ramah" id="sabar_ramah" class="form-control" >
+                            <select name="sabar_ramah" id="sabar_ramah" class="form-control" required>
                                  <option value="" selected disabled hidden>Pilih disini</option>
                                 @foreach ($candidates as $candidate)
                                     <option value="{{ $candidate->name }}"
@@ -62,9 +71,9 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="humoris_menyenangkan" class="form-label">Guru Ter <b>Humoris dan Menyenangkan</b></label>
-                            <select name="humoris_menyenangkan" id="humoris_menyenangkan" class="form-control" >
+                            <select name="humoris_menyenangkan" id="humoris_menyenangkan" class="form-control" required>
                                  <option value="" selected disabled hidden>Pilih disini</option>
                                 @foreach ($candidates as $candidate)
                                     <option value="{{ $candidate->name }}"
@@ -80,9 +89,9 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="komunikatif" class="form-label">Guru Ter <b>Komunikatif</b></label>
-                            <select name="komunikatif" id="komunikatif" class="form-control" >
+                            <select name="komunikatif" id="komunikatif" class="form-control" required>
                                  <option value="" selected disabled hidden>Pilih disini</option>
                                 @foreach ($candidates as $candidate)
                                     <option value="{{ $candidate->name }}"
@@ -98,9 +107,9 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label for="favorit_jurusan" class="form-label">Guru <b>Favorit Jurusan</b></label>
-                            <select name="favorit_jurusan" id="favorit_jurusan" class="form-control" >
+                            <select name="favorit_jurusan" id="favorit_jurusan" class="form-control" required>
                                  <option value="" selected disabled hidden>Pilih disini</option>
                                 @foreach ($study_candidates as $study_candidates)
                                     <option value="{{ $study_candidates->name }}"
@@ -117,7 +126,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-success">Kumpulkan</button>
+                            <button type="submit" class="btn btn-success" onclick="return cek()">Kumpulkan</button>
                         </div>
                     </form>
                 </div>
@@ -127,8 +136,8 @@
 
 
     <Script>
-        function cek(tim) {
-            let check1 = confirm("Yakin kamu mau pilih pasangan " + tim + "?");
+        function cek() {
+            let check1 = confirm("Sudah yakin dengan pilihan kamu?");
             if (check1) {
                 let check2 = confirm("Yakin banget nih??");
                 if (check2) {
